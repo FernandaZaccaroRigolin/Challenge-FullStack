@@ -1,0 +1,152 @@
+<div class="po-wrapper">
+  <<po-page-edit
+    [p-breadcrumb]="poBreadcrumb"
+    (p-cancel)="cancel()"
+    [p-disable-submit]="!this.clientForm.valid || phones.length == 0"
+    (p-save-new)="insertClient()"
+    [p-title]="title"
+  >
+    <form [formGroup]="clientForm">
+      <div class="po-row">
+        <po-input
+          class="po-md-12"
+          formControlName="name"
+          p-clean
+          p-icon="po-icon-user"
+          p-label="Nome do Cliente"
+          p-placeholder="Informe o nome"
+        >
+        </po-input>
+      </div>
+
+      <div class="po-row">
+        <po-input
+          class="po-lg-5"
+          formControlName="address"
+          p-clean
+          p-icon="po-icon-pin"
+          p-label="Endereço"
+          p-placeholder="Informe o endereço"
+        >
+        </po-input>
+
+        <po-number
+          class="po-lg-2"
+          formControlName="number"
+          p-label="Número"
+          p-clean
+          p-placeholder="Informe o número"
+        >
+        </po-number>
+
+        <po-input
+          class="po-lg-5"
+          formControlName="district"
+          p-clean
+          p-label="Bairro"
+          p-placeholder="Informe o bairro"
+        >
+        </po-input>
+      </div>
+    </form>
+    <!-- <po-list-view class=""
+      p-property-title="name"
+      [p-items]="[{ name: '(16)99751-8167' }, { name: '(16)99751-8867' }]"
+    >
+    </po-list-view> -->
+    <!-- <div class="container"> -->
+    <div class="po-row">
+      <!-- <po-list-view class="row-md-3" p-property-title="name" [p-items]="phones">
+        <ng-template p-list-view-content-template let-item>
+          <div class="po-row">
+            <po-info class="po-md-12" p-label="" [p-value]="item"></po-info>
+          </div>
+        </ng-template>
+      </po-list-view> -->
+      <po-table [p-columns]="columns" [p-items]="phones"> </po-table>
+    </div>
+
+    <form [formGroup]="phoneForm">
+      <div class="po-row">
+        <po-input
+          class="po-lg-5"
+          formControlName="phone"
+          p-clean
+          p-placeholder="Informe o telefone"
+          p-help="Mask: (99)99999-9999 ou (99)9999-9999"
+        >
+        </po-input>
+        <po-button
+          class="po-md-2 po-mt-1"
+          p-label="Inserir Telefone"
+          (p-click)="addPhone()"
+          [p-disabled]="!this.phoneForm.valid"
+        >
+        </po-button>
+      </div>
+    </form>
+
+    <!-- </div> -->
+
+    <!-- <po-modal
+      #reactiveFormData
+      p-title="Save successful"
+      [p-primary-action]="modalPrimaryAction"
+    >
+      <div class="po-row">
+        <po-info
+          class="po-md-12"
+          p-label="Name"
+          [p-value]="reactiveForm.controls.name.value"
+        >
+        </po-info>
+      </div>
+
+      <hr />
+
+      <div class="po-row">
+        <po-info
+          class="po-md-6"
+          p-label="Address"
+          [p-value]="reactiveForm.controls.address.value"
+        >
+        </po-info>
+
+        <po-info
+          class="po-md-6"
+          p-label="Number"
+          [p-value]="reactiveForm.controls.number.value"
+        >
+        </po-info>
+      </div>
+
+      <hr />
+
+      <div class="po-row">
+        <po-info
+          class="po-md-6"
+          p-label="Email"
+          [p-value]="reactiveForm.controls.email.value"
+        >
+        </po-info>
+
+        <po-info
+          class="po-md-6"
+          p-label="Website"
+          [p-value]="reactiveForm.controls.website.value"
+        >
+        </po-info>
+      </div>
+    </po-modal> -->
+  </po-page-edit>
+</div>
+
+<po-modal
+  [p-primary-action]="primaryAction"
+  [p-secondary-action]="secondaryAction"
+  p-size="Small"
+  [p-title]="title"
+  p-icon="po-icon-user"
+>
+  {{ content }}
+</po-modal>

@@ -1,0 +1,14 @@
+<div class="po-wrapper">
+  <po-page-default [p-breadcrumb]="poBreadcrumb" [p-title]="title">
+    <po-button
+      class="po-mb-3"
+      p-icon="po-icon-plus"
+      (p-click)="insertClient()"
+      p-kind="primary"
+      p-label="Novo Cliente"
+      p-size="medium"
+    >
+    </po-button>
+    <po-grid [p-data]="data" [p-columns]="columns"> </po-grid>
+  </po-page-default>
+</div>

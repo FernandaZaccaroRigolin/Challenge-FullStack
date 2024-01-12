@@ -1,0 +1,25 @@
+<div class="po-wrapper-menu-panel">
+  <po-toolbar p-title="Desafio - Totvs"></po-toolbar>
+
+  <po-menu-panel
+    [p-menus]="menuItems"
+    p-logo="https://avatars.githubusercontent.com/u/107860397?v=4"
+  ></po-menu-panel>
+
+  <po-page-default
+    [p-breadcrumb]="PoBreadcrumb"
+    [p-title]="title"
+    *ngIf="!triggeredRoute"
+  >
+    <div *ngIf="title === 'Configurador'">
+      <po-info
+        class="po-lg-12"
+        p-label="Cadastro(1)"
+        p-value="Selecione a rotina de cadsatro na lista abaixo."
+      >
+      </po-info>
+      <po-link (click)="triggerRoute('/client')" p-label="Cliente"></po-link>
+    </div>
+  </po-page-default>
+  <router-outlet *ngIf="triggeredRoute"></router-outlet>
+</div>
